@@ -1,0 +1,48 @@
+//
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+
+final class {{ module_info.name }}Presenter {
+
+    weak var view: {{ module_info.name }}ViewInput!
+    var interactor: {{ module_info.name }}InteractorInput!
+    weak var moduleOutput: {{ module_info.name }}ModuleOutput?
+
+	func make{{ module_info.name }}Module() -> ({{ module_info.name }}ModuleInput, Presentable) {
+        let viewController = {{ module_info.name }}ViewController()
+
+        let presenter = {{ module_info.name }}Presenter()
+        presenter.view = viewController
+
+        let interactor = {{ module_info.name }}Interactor()
+        interactor.output = presenter
+        
+        presenter.interactor = interactor
+        viewController.output = presenter
+
+        return (presenter, viewController)
+    }
+}
+
+// MARK: {{ module_info.name }}ModuleInput
+extension {{ module_info.name }}Presenter: {{ module_info.name }}ModuleInput {
+	
+}
+
+// MARK: {{ module_info.name }}ViewOutput
+extension {{ module_info.name }}Presenter: {{ module_info.name }}ViewOutput {
+    func viewIsReady() {
+
+    }
+}
+
+// MARK: {{ module_info.name }}InteractorOutput
+extension {{ module_info.name }}Presenter: {{ module_info.name }}InteractorOutput {
+	
+}

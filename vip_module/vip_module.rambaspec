@@ -1,0 +1,33 @@
+# Template information section
+name: "vip_module"
+summary: "Swift VIP module template."
+author: "llo8"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# View
+- {name: ViewController.swift, path: Code/viewcontroller.swift.liquid}
+
+# Presenter
+- {name: Presenter.swift, path: Code/presenter.swift.liquid}
+
+# Interactor
+- {name: Interactor.swift, path: Code/interactor.swift.liquid}
+
+# Configurator
+- {name: Configurator.swift, path: Code/configurator.swift.liquid}
+
+# The declarations for test files
+test_files:
+
+# Configurators tests
+- {name: ConfiguratorTests.swift, path: Tests/configurator_tests.swift.liquid}
+
+# Interactor tests
+- {name: InteractorTests.swift, path: Tests/interactor_tests.swift.liquid}
+
+# Presenter tests
+- {name: PresenterTests.swift, path: Tests/presenter_tests.swift.liquid}

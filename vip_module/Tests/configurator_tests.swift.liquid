@@ -1,0 +1,49 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import XCTest
+
+class {{ module_info.name }}ModuleConfiguratorTests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
+    func testConfigureModuleForViewController() {
+
+        //given
+        let viewController = {{ module_info.name }}ViewControllerMock()
+        let configurator = {{ module_info.name }}ModuleConfigurator()
+        configurator.view = viewController
+
+        //when
+        configurator.configureModule()
+
+        //then
+        let interactor: {{ module_info.name }}Interactor = viewController.interactor as! {{ module_info.name }}Interactor
+        
+        XCTAssertNotNil(configurator.view, "{{ module_info.name }}ViewController is nil after configuration")
+        XCTAssertTrue(interactor is {{ module_info.name }}Interactor, "interactor is not {{ module_info.name }}Interactor")
+
+        let presenter: {{ module_info.name }}Presenter = interactor.presenter as! {{ module_info.name }}Presenter
+        XCTAssertTrue(presenter.view is {{ module_info.name }}ViewController, "view is not {{ module_info.name }}ViewController")
+
+        XCTAssertNotNil(interactor.presenter, "presenter in {{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertNotNil(interactor.router, "router in {{ module_info.name }}Router is nil after configuration")
+    }
+
+    class {{ module_info.name }}ViewControllerMock: {{ module_info.name }}ViewController {
+
+    }
+}
