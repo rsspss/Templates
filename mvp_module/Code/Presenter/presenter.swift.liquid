@@ -13,7 +13,7 @@ final class {{ module_info.name }}Presenter {
     // MARK: - Properties
 
     weak var view: {{ module_info.name }}ViewInput?
-    weak var output: {{ module_info.name }}ModuleOutput?
+    weak var moduleOutput: {{ module_info.name }}ModuleOutput?
 
     // MARK: - Private
 
@@ -22,7 +22,6 @@ final class {{ module_info.name }}Presenter {
 // MARK: {{ module_info.name }}ViewOutput
 
 extension {{ module_info.name }}Presenter: {{ module_info.name }}ViewOutput { }
-
 
 // MARK: {{ module_info.name }}ModuleInput
 
