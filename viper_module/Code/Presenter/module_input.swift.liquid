@@ -8,6 +8,11 @@
 
 import Foundation
 
-protocol {{ module_info.name }}ModuleInput: ModuleInput {
+protocol {{ module_info.name }}ModuleInput: AnyObject {
+    var moduleOutput: {{ module_info.name }}ModuleOutput? { get set }
+    func configurateModule(with request: Open{{ module_info.name }}Request)
+}
 
+struct Open{{ module_info.name }}Request {
+    
 }
