@@ -14,7 +14,10 @@ final class {{ module_info.name }}Presenter {
     var interactor: {{ module_info.name }}InteractorInput!
     weak var moduleOutput: {{ module_info.name }}ModuleOutput?
 
-	func make{{ module_info.name }}Module() -> ({{ module_info.name }}ModuleInput, Presentable) {
+    // MARK: - Private
+    private var request: Open{{ module_info.name }}Request?
+
+    func make{{ module_info.name }}Module() -> ({{ module_info.name }}ModuleInput, Presentable) {
         let viewController = {{ module_info.name }}ViewController()
 
         let presenter = {{ module_info.name }}Presenter()
@@ -32,7 +35,9 @@ final class {{ module_info.name }}Presenter {
 
 // MARK: {{ module_info.name }}ModuleInput
 extension {{ module_info.name }}Presenter: {{ module_info.name }}ModuleInput {
-	
+    func configurateModule(with request: Open{{ module_info.name }}Request) {
+        self.request = request
+    }
 }
 
 // MARK: {{ module_info.name }}ViewOutput
@@ -44,5 +49,5 @@ extension {{ module_info.name }}Presenter: {{ module_info.name }}ViewOutput {
 
 // MARK: {{ module_info.name }}InteractorOutput
 extension {{ module_info.name }}Presenter: {{ module_info.name }}InteractorOutput {
-	
+    
 }
