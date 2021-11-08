@@ -16,7 +16,7 @@ final class {{ module_info.name }}Presenter {
     weak var moduleOutput: {{ module_info.name }}ModuleOutput?
 
     // MARK: - Private
-
+    private var request: Open{{ module_info.name }}Request?
 }
 
 // MARK: {{ module_info.name }}ViewOutput
@@ -25,4 +25,8 @@ extension {{ module_info.name }}Presenter: {{ module_info.name }}ViewOutput { }
 
 // MARK: {{ module_info.name }}ModuleInput
 
-extension {{ module_info.name }}Presenter: {{ module_info.name }}ModuleInput { }
+extension {{ module_info.name }}Presenter: {{ module_info.name }}ModuleInput {
+    func configurateModule(with request: Open{{ module_info.name }}Request) {
+        self.request = request
+    }
+}
