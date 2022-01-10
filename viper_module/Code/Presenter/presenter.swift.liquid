@@ -10,8 +10,8 @@ import Foundation
 
 final class {{ module_info.name }}Presenter {
 
-    weak var view: {{ module_info.name }}ViewInput!
-    var interactor: {{ module_info.name }}InteractorInput!
+    weak var view: {{ module_info.name }}ViewInput?
+    var interactor: {{ module_info.name }}InteractorInput?
     weak var moduleOutput: {{ module_info.name }}ModuleOutput?
 
     // MARK: - Private
